@@ -1,27 +1,32 @@
-''' Copy a list of cells to yoru clipboard and this will ready them for SQL all on one line'''
+''' Copy a list of cells to your clipboard and this will add commas in between them'''
 
 import pyperclip
 
+
 def paste():
-	text = pyperclip.paste()
-	lines = text.splitlines()
-	return lines
+    text = pyperclip.paste()
+    lines = text.splitlines()
+    return lines
 
-def commaFormat(List):
-	for i in range(len(List) - 1):
-		List[i] = List[i] + ","
-	return List
 
-def removeBlank(List):
-	for i in List:
-		if i == "\n":
-			List.remove(i)
-	return List
+def commaFormat(items):
+    for i in range(len(items) - 1):
+        items[i] = items[i] + ","
+    return items
 
-def copy(List):
-	text = ''.join(List)
-	pyperclip.copy(text)
 
+def removeBlank(items):
+    for i in items:
+        if i == "\n":
+            items.remove(i)
+    return items
+
+
+def copy(items):
+    text = ''.join(items)
+    pyperclip.copy(text)
 
 
 copy(commaFormat(paste()))
+
+

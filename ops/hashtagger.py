@@ -2,36 +2,28 @@
 import pyperclip
 import re
 
+
 def paste():
-	# Pastes your clipboard into a variable and splits it into lines
-	text = pyperclip.paste()
-	lines = text.splitlines()
-	return lines
+    # Pastes your clipboard into a variable and splits it into lines
+    text = pyperclip.paste()
+    lines = text.splitlines()
+    return lines
+
 
 def clean(item):
-	# Gets rid of spaces and all punctuation
-	item = '#' + re.sub(r'[^\w\s]','',item.replace(' ',''))
-	return item
+    # Gets rid of spaces and all punctuation
+    item = '#' + re.sub(r'[^\w\s]', '', item.replace(' ', ''))
+    return item
+
 
 def copy(List):
-	# Copies the variable you give it
-	text = ', '.join(List)
-	pyperclip.copy(text)
+    # Copies the variable you give it
+    text = ', '.join(List)
+    pyperclip.copy(text)
 
 tagged = []
 
 for item in paste():
-	tagged.append(clean(item))
-	
+    tagged.append(clean(item))
+
 copy(tagged)
-
-
-# This works too
-# next = [each.replace(' ', '') for each in cities]
-# one = ["#" + each for each in next]
-
-
-
-
-	
-

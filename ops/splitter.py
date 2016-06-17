@@ -6,8 +6,8 @@ times = pyperclip.paste().split('\n')
 
 clean_times = []
 for each in times:
-	splat = each.split(' ')
-	clean_times.append(splat[0])
+    splat = each.split(' ')
+    clean_times.append(splat[0])
 
 clean = []
 for each in clean_times:
@@ -19,6 +19,3 @@ for each in clean_times:
 final = ('\n').join(clean)
 pyperclip.copy(final)
 print 'The date is on your clipboard'
-
-
-
